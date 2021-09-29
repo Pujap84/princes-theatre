@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/Pujap84/princes-theatre#readme",
   "dependencies": {
+    "axios": "^0.21.4",
     "express": "^4.17.1",
     "jest": "^27.2.3"
   },
   "devDependencies": {
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.13"
   }
 }

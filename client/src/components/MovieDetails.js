@@ -3,6 +3,9 @@ import axios from "axios";
 import "./MovieDetails.css";
 import { getProviderInfo } from "./getMovieNames";
 import { getMovieNames } from "./getMovieNames";
+import { getMovieStreamingCostCinemaWorld } from "./getMovieNames";
+import { getMovieStreamingCostFilmWorld } from "./getMovieNames";
+import { getCinemaWorldMovieImage } from "./getMovieNames";
 
 export class MovieDetails extends Component {
     state = {
@@ -16,7 +19,7 @@ export class MovieDetails extends Component {
             input: event.target.value,
         });
     };
-
+    // This function runs every time state gets updated
     componentDidMount = () => {
         axios.get("/api/message").then((res) =>
             this.setState({
@@ -39,56 +42,18 @@ export class MovieDetails extends Component {
     getMovieStreamingCostCinemaWorld = () => {
         let moviesData = this.state.movieDisplay;
         let input = this.state.input;
-        if (!moviesData || !moviesData.length) {
-            return [];
-        }
-
-        let array = [];
-        let movieObj1 = moviesData[0].Movies.filter((movie) =>
-            movie.Title.includes(input)
-        );
-
-        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toFixed(2);
-
-        array.push(movieObjCostCinemaWorld);
-
-        return array;
+        return getMovieStreamingCostCinemaWorld(moviesData, input);
     };
     getMovieStreamingCostFilmWorld = () => {
         let moviesData = this.state.movieDisplay;
         let input = this.state.input;
-        if (!moviesData || !moviesData.length) {
-            return [];
-        }
-
-        let array = [];
-        let movieObj1 = moviesData[1].Movies.filter((movie) =>
-            movie.Title.includes(input)
-        );
-
-        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toFixed(2);
-
-        array.push(movieObjCostCinemaWorld);
-
-        return array;
+        return getMovieStreamingCostFilmWorld(moviesData, input);
     };
 
     getCinemaWorldMovieImage = () => {
         let moviesData = this.state.movieDisplay;
         let input = this.state.input;
-        if (!moviesData || !moviesData.length) {
-            return [];
-        }
-        let array = [];
-        let movieObj1 = moviesData[0].Movies.filter((movie) =>
-            movie.Title.includes(input)
-        );
-
-        let movieObjImage = movieObj1[0]["Poster"];
-
-        array.push(movieObjImage);
-
-        return array;
+        return getCinemaWorldMovieImage(moviesData, input);
     };
 
     getAllMovies = () => {
@@ -103,57 +68,6 @@ export class MovieDetails extends Component {
         console.log(allMovies);
         return allMovies;
     };
-
-    // getMovieNames = () => {
-    //     let moviesData = this.state.movieDisplay;
-    //     let movieNames = moviesData[0]["Movies"].map((movie) => {
-    //         return movie["Title"];
-    //     });
-    //     return movieNames;
-    //     // console.log(movieNames);
-    //     // const moviesArray = movieNames
-    // };
-
-    // getMovieData() {
-    //     return axios.get("/api/message").then((res) => {
-    //         const currentMovieData = [...this.state.movieDisplay];
-    //         currentMovieData.push({ movieDisplay: res.data });
-
-    //         this.setState({
-    //             movieDisplay: currentMovieData,
-    //         });
-    //     });
-    // }
-
-    // getMovieData() {
-    //     return axios.get("/api/message").then((res) => {
-    //         this.setState({
-    //             movieDisplay: res.data,
-    //         });
-    //     });
-    // }
-
-    // This function runs every time state gets updated
-    // componentDidUpdate() {
-    //     axios.post("//api/message", {
-    //         movieDisplay: this.state.movieDisplay,
-    //     });
-    // }
-
-    // getMovieData = () => {
-    //     return axios.get("/api/message").then((res) => {
-    //         console.log(res.data);
-    //     });
-    // };
-
-    // getMovieDate = (input) => {
-    //     let params = {
-    //         input: input,
-    //     };
-    //     return axios.get("/api/message", { params }).then((res) => {
-    //         console.log(res.data);
-    //     });
-    // };
 
     render() {
         return (

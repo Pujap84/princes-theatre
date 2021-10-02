@@ -1,8 +1,10 @@
 import { render, screen, cleanup } from "@testing-library/react";
-import App from "./App";
 import { MovieDetails } from "./components/MovieDetails";
 import { getProviderInfo } from "./components/getMovieNames";
 import { getMovieNames } from "./components/getMovieNames";
+import { getMovieStreamingCostCinemaWorld } from "./components/getMovieNames";
+import { getMovieStreamingCostFilmWorld } from "./components/getMovieNames";
+import { getCinemaWorldMovieImage } from "./components/getMovieNames";
 
 test("test", () => {
     expect(true).toBe(true);
@@ -119,6 +121,163 @@ test("get Movie Names", () => {
     expect(movieData[1]).toEqual("Solo: A Star Wars Story");
 });
 
+test("get Movie Streaming cost from CinemaWorld", () => {
+    let moviesData = [
+        {
+            Provider: "Cinema World",
+            Movies: [
+                {
+                    ID: "cw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 24.7,
+                },
+
+                {
+                    ID: "cw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24.5,
+                },
+            ],
+        },
+        {
+            Provider: "Film World",
+            Movies: [
+                {
+                    ID: "fw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 25,
+                },
+
+                {
+                    ID: "fw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24,
+                },
+            ],
+        },
+    ];
+    let input = "Star Wars: Episode VII - The Force Awakens";
+    const movieData = getMovieStreamingCostCinemaWorld(moviesData, input);
+    expect(movieData[0]).toBe("24.70");
+});
+
+test("get Movie Streaming cost from FilmWorld", () => {
+    let moviesData = [
+        {
+            Provider: "Cinema World",
+            Movies: [
+                {
+                    ID: "cw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 24.7,
+                },
+
+                {
+                    ID: "cw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24.5,
+                },
+            ],
+        },
+        {
+            Provider: "Film World",
+            Movies: [
+                {
+                    ID: "fw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 25,
+                },
+
+                {
+                    ID: "fw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24,
+                },
+            ],
+        },
+    ];
+    let input = "Solo: A Star Wars Story";
+    const movieData = getMovieStreamingCostFilmWorld(moviesData, input);
+    expect(movieData[0]).toBe("24.00");
+});
+
+test("get Movie Streaming cost from FilmWorld", () => {
+    let moviesData = [
+        {
+            Provider: "Cinema World",
+            Movies: [
+                {
+                    ID: "cw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 24.7,
+                },
+
+                {
+                    ID: "cw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24.5,
+                },
+            ],
+        },
+        {
+            Provider: "Film World",
+            Movies: [
+                {
+                    ID: "fw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 25,
+                },
+
+                {
+                    ID: "fw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24,
+                },
+            ],
+        },
+    ];
+    let input = "Solo: A Star Wars Story";
+    const movieData = getCinemaWorldMovieImage(moviesData, input);
+    expect(movieData[0]).toBe(
+        "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg"
+    );
+});
 // test("component mount test", () => {
 //     render(<MovieDetails />);
 //     const moviesData = state.movieDisplay;
@@ -315,17 +474,4 @@ test("get Movie Names", () => {
 // test("everything loaded correctly", () => {
 //     const component = componentDidMount();
 //     expect(state.isLoaded).toBe(true);
-// });
-
-// test("get Movie Names", () => {
-//     const testMovieNames = getMovieNames();
-//     expect(testMovieNames[0]).toBe(
-//         "Star Wars: Episode VII - The Force Awakens"
-//     );
-// });
-
-// test("get Provider Names", () => {
-//     const movieData = getProviderInfo();
-//     expect(movieData[0]["Provider"]).toEqual("Cinema World");
-//     expect(movieData[1]["Provider"]).toEqual("Film World");
 // });

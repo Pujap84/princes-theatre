@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./MovieDetails.css";
+import { getProviderInfo } from "./getMovieNames";
+import { getMovieNames } from "./getMovieNames";
 
 export class MovieDetails extends Component {
     state = {
@@ -26,27 +28,12 @@ export class MovieDetails extends Component {
 
     getMovieNames = () => {
         let moviesData = this.state.movieDisplay;
-        if (!moviesData || !moviesData.length) {
-            return [];
-        }
-        let movieNames = moviesData[0]["Movies"];
-        // console.log(movieNames);
-        const moviesArray = movieNames.map((movie) => {
-            return movie["Title"];
-        });
-        return moviesArray;
+        return getMovieNames(moviesData);
     };
 
     getProviderInfo = () => {
         let moviesData = this.state.movieDisplay;
-        if (!moviesData || !moviesData.length) {
-            return [];
-        }
-        let movieProvider1 = moviesData[0]["Provider"];
-        let movieProvider2 = moviesData[1]["Provider"];
-        let array = [];
-        array.push(movieProvider1, movieProvider2);
-        return array;
+        return getProviderInfo(moviesData);
     };
 
     getMovieStreamingCostCinemaWorld = () => {
@@ -61,7 +48,7 @@ export class MovieDetails extends Component {
             movie.Title.includes(input)
         );
 
-        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toString();
+        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toFixed(2);
 
         array.push(movieObjCostCinemaWorld);
 
@@ -79,7 +66,7 @@ export class MovieDetails extends Component {
             movie.Title.includes(input)
         );
 
-        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toString();
+        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toFixed(2);
 
         array.push(movieObjCostCinemaWorld);
 
@@ -170,7 +157,7 @@ export class MovieDetails extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" data-testid="movieDetails-1">
                 <div>Available Movies</div>
                 <div>
                     <div
@@ -209,7 +196,7 @@ export class MovieDetails extends Component {
                         </form>
                     </div>
 
-                    {/* <div className="movie-info">
+                    <div className="movie-info">
                         <div className="movie-name">
                             <p>{this.state.input}</p>
                         </div>
@@ -243,23 +230,20 @@ export class MovieDetails extends Component {
                                     : ""}
                             </div>
                         </div>
-                    </div> */}
-                    <div className="all-movies">
-                        {this.state.input == "all-movies"
-                            ? this.getAllMovies().map((provider) =>
-                                  provider.map((movie) => (
-                                      <div className="">{movie["Title"]}</div>
-                                  ))
-                              )
-                            : ""}
-                        {/* {this.state.isLoaded &&
-                            this.getAllMovies().map((provider) => {
-                                <div>{provider}</div>;
-                                // provider.map((movie) => {
-                                //     <div className="">{movie["Title"]}</div>;
-                                // });
-                            })} */}
+
+                        {/* <div className="all-movies">
+                            {this.state.input == "all-movies"
+                                ? this.getAllMovies().map((provider) =>
+                                      provider.map((movie) => (
+                                          <div className="">
+                                              {movie["Title"]}
+                                          </div>
+                                      ))
+                                  )
+                                : ""}
+                        </div> */}
                     </div>
+
                     {/* <div>
                         {" "}
                         {this.state.isLoaded &&

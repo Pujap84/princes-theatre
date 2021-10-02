@@ -1,32 +1,26 @@
-/* .dropbox {
-    position: relative;
-    width: 200px;
-    height: 25px;
-    border: 0;
-    padding: 0;
-    margin: 0;
+.providersandcosts {
+    display: flex;
+    padding: 10px;
+    gap: 30%;
+    text-align: left;
+    height: 100%;
+    width: 100%;
+}
+.providers {
+    overflow: auto;
 }
 
-.select-options {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 200px;
-    height: 25px;
-    line-height: 20px;
-    margin: 0;
-    padding: 0;
+.movie-info {
+    margin-top: 10%;
+    margin: 0 auto;
+}
+.movie-name {
+    padding: 20px;
+}
+.all-movies {
+    margin-top: 20px;
 }
 
-.input {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 183px;
-    width: 180px\9;
-    #width: 180px;
-    height: 23px;
-    height: 21px\9;
-    #height: 18px;
-    border: 1px solid #556;
-} */
+.dropdown-menu {
+    margin-bottom: 20px;
+}

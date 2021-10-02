@@ -37,6 +37,86 @@ export class MovieDetails extends Component {
         return moviesArray;
     };
 
+    getProviderInfo = () => {
+        let moviesData = this.state.movieDisplay;
+        if (!moviesData || !moviesData.length) {
+            return [];
+        }
+        let movieProvider1 = moviesData[0]["Provider"];
+        let movieProvider2 = moviesData[1]["Provider"];
+        let array = [];
+        array.push(movieProvider1, movieProvider2);
+        return array;
+    };
+
+    getMovieStreamingCostCinemaWorld = () => {
+        let moviesData = this.state.movieDisplay;
+        let input = this.state.input;
+        if (!moviesData || !moviesData.length) {
+            return [];
+        }
+
+        let array = [];
+        let movieObj1 = moviesData[0].Movies.filter((movie) =>
+            movie.Title.includes(input)
+        );
+
+        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toString();
+
+        array.push(movieObjCostCinemaWorld);
+
+        return array;
+    };
+    getMovieStreamingCostFilmWorld = () => {
+        let moviesData = this.state.movieDisplay;
+        let input = this.state.input;
+        if (!moviesData || !moviesData.length) {
+            return [];
+        }
+
+        let array = [];
+        let movieObj1 = moviesData[1].Movies.filter((movie) =>
+            movie.Title.includes(input)
+        );
+
+        let movieObjCostCinemaWorld = movieObj1[0]["Price"].toString();
+
+        array.push(movieObjCostCinemaWorld);
+
+        return array;
+    };
+
+    getCinemaWorldMovieImage = () => {
+        let moviesData = this.state.movieDisplay;
+        let input = this.state.input;
+        if (!moviesData || !moviesData.length) {
+            return [];
+        }
+        let array = [];
+        let movieObj1 = moviesData[0].Movies.filter((movie) =>
+            movie.Title.includes(input)
+        );
+
+        let movieObjImage = movieObj1[0]["Poster"];
+
+        array.push(movieObjImage);
+
+        return array;
+    };
+
+    getAllMovies = () => {
+        let moviesData = this.state.movieDisplay;
+        if (!moviesData || !moviesData.length) {
+            return [];
+        }
+        let allMovies = [];
+        let allMoviesProvider1 = moviesData[0]["Movies"];
+        let allMoviesProvider2 = moviesData[1]["Movies"];
+        allMovies.push(allMoviesProvider1, allMoviesProvider2);
+        console.log(allMovies);
+        return allMovies;
+    };
+
     // getMovieNames = () => {
     //     let moviesData = this.state.movieDisplay;
     //     let movieNames = moviesData[0]["Movies"].map((movie) => {
@@ -92,70 +172,100 @@ export class MovieDetails extends Component {
         return (
             <div className="container">
                 <div>Available Movies</div>
-                <div
-                    style={{
-                        position: "relative",
-                        width: "200px",
-                        height: "25px",
-                        border: 0,
-                        padding: 0,
-                        margin: "0 auto",
-                        top: 20,
-                    }}
-                >
-                    <select
+                <div>
+                    <div
                         style={{
-                            position: "absolute",
-                            top: "0px",
-                            left: "0px",
+                            position: "relative",
                             width: "200px",
                             height: "25px",
-                            lineHeight: "20px",
-                            margin: 0,
+                            border: 0,
                             padding: 0,
+                            margin: "0 auto",
+                            marginBottom: "20px",
+                            top: 20,
                         }}
-                        onChange={this.handleChange}
                     >
-                        <option>All Movies</option>
+                        <form className="dropdown-menu" action="">
+                            <select
+                                style={{
+                                    position: "absolute",
+                                    top: "0px",
+                                    left: "0px",
+                                    width: "200px",
+                                    height: "25px",
+                                    lineHeight: "20px",
+                                    margin: 0,
+                                    padding: 0,
+                                }}
+                                onChange={this.handleChange}
+                            >
+                                <option value="">None</option>
+                                <option value="all-movies">All Movies</option>
+                                {this.state.isLoaded &&
+                                    this.getMovieNames().map((movie) => (
+                                        <option>{movie}</option>
+                                    ))}
+                            </select>
+                        </form>
+                    </div>
+
+                    {/* <div className="movie-info">
+                        <div className="movie-name">
+                            <p>{this.state.input}</p>
+                        </div>
+
+                        <div>
+                            {this.state.input !== ""
+                                ? this.getCinemaWorldMovieImage().map(
+                                      (image) => <img src={image} alt="" />
+                                  )
+                                : ""}
+                        </div>
+                        <div className="providersandcosts">
+                            <div className="providers">
+                                {this.state.input !== ""
+                                    ? this.getProviderInfo().map((provider) => (
+                                          <div>{provider}</div>
+                                      ))
+                                    : ""}
+                            </div>
+                            <div className="costs">
+                                {this.state.input !== ""
+                                    ? this.getMovieStreamingCostCinemaWorld().map(
+                                          (cost) => <div>${cost}</div>
+                                      )
+                                    : ""}
+
+                                {this.state.input !== ""
+                                    ? this.getMovieStreamingCostFilmWorld().map(
+                                          (cost) => <div>${cost}</div>
+                                      )
+                                    : ""}
+                            </div>
+                        </div>
+                    </div> */}
+                    <div className="all-movies">
+                        {this.state.input == "all-movies"
+                            ? this.getAllMovies().map((provider) =>
+                                  provider.map((movie) => (
+                                      <div className="">{movie["Title"]}</div>
+                                  ))
+                              )
+                            : ""}
+                        {/* {this.state.isLoaded &&
+                            this.getAllMovies().map((provider) => {
+                                <div>{provider}</div>;
+                                // provider.map((movie) => {
+                                //     <div className="">{movie["Title"]}</div>;
+                                // });
+                            })} */}
+                    </div>
+                    {/* <div>
+                        {" "}
                         {this.state.isLoaded &&
                             this.getMovieNames().map((movie) => (
                                 <option>{movie}</option>
                             ))}
-                    </select>
-                    <input
-                        name="displayValue"
-                        id="displayValue"
-                        style={{
-                            position: "absolute",
-                            top: "3px",
-                            left: "3px",
-                            width: "175px",
-                            border: "1px solid #A9A9A9",
-                        }}
-                        // onFocus={this.select}
-                        // type="text"
-                        // onChange={this.onIdFilterChange}
-                        // onMouseDown={this.onMouseDown}
-                        // onMouseUp={this.onMouseUp}
-                        // placeholder="Filter by Movie"
-                    />
-                    {/* <p
-                        style={{
-                            padding: "50px",
-                        }}
-                    >
-                        {this.state.isLoaded &&
-                            this.getMovieNames().map((movie) => <p>{movie}</p>)}
-                    </p> */}
-
-                    {/* <div
-                        style={{
-                            padding: "50px",
-                        }}
-                    >
-                        {this.state.movieDisplay[0]["Movies"].map((movie) => {
-                            return movie["Title"];
-                        })}
                     </div> */}
                 </div>
             </div>

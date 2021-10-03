@@ -5,6 +5,9 @@ import { getMovieNames } from "./components/componentFunctions";
 import { getMovieStreamingCostCinemaWorld } from "./components/componentFunctions";
 import { getMovieStreamingCostFilmWorld } from "./components/componentFunctions";
 import { getCinemaWorldMovieImage } from "./components/componentFunctions";
+import { getAllMovies } from "./components/componentFunctions";
+import { cinemaWorldIsCheaper } from "./components/componentFunctions";
+import { filmWorldIsCheaper } from "./components/componentFunctions";
 
 test("test", () => {
     expect(true).toBe(true);
@@ -170,7 +173,7 @@ test("get Movie Streaming cost from CinemaWorld", () => {
     ];
     let input = "Star Wars: Episode VII - The Force Awakens";
     const movieData = getMovieStreamingCostCinemaWorld(moviesData, input);
-    expect(movieData[0]).toBe("24.70");
+    expect(movieData).toBe("24.70");
 });
 
 test("get Movie Streaming cost from FilmWorld", () => {
@@ -222,7 +225,7 @@ test("get Movie Streaming cost from FilmWorld", () => {
     ];
     let input = "Solo: A Star Wars Story";
     const movieData = getMovieStreamingCostFilmWorld(moviesData, input);
-    expect(movieData[0]).toBe("24.00");
+    expect(movieData).toBe("24.00");
 });
 
 test("get Movie Streaming cost from FilmWorld", () => {
@@ -274,10 +277,168 @@ test("get Movie Streaming cost from FilmWorld", () => {
     ];
     let input = "Solo: A Star Wars Story";
     const movieData = getCinemaWorldMovieImage(moviesData, input);
-    expect(movieData[0]).toBe(
+    expect(movieData).toBe(
         "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg"
     );
 });
+
+test("get all Movies", () => {
+    let moviesData = [
+        {
+            Provider: "Cinema World",
+            Movies: [
+                {
+                    ID: "cw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 24.7,
+                },
+
+                {
+                    ID: "cw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24.5,
+                },
+            ],
+        },
+        {
+            Provider: "Film World",
+            Movies: [
+                {
+                    ID: "fw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 25,
+                },
+
+                {
+                    ID: "fw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24,
+                },
+            ],
+        },
+    ];
+    const movieData = getAllMovies(moviesData);
+    expect(movieData[0][0]["Title"]).toEqual(
+        "Star Wars: Episode VII - The Force Awakens"
+    );
+    expect(movieData[1][1]["Title"]).toEqual("Solo: A Star Wars Story");
+});
+
+test("CinemaWorld is cheaper", () => {
+    let moviesData = [
+        {
+            Provider: "Cinema World",
+            Movies: [
+                {
+                    ID: "cw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 24.7,
+                },
+
+                {
+                    ID: "cw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24.5,
+                },
+            ],
+        },
+        {
+            Provider: "Film World",
+            Movies: [
+                {
+                    ID: "fw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 25,
+                },
+
+                {
+                    ID: "fw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24,
+                },
+            ],
+        },
+    ];
+    let input = "Star Wars: Episode VII - The Force Awakens";
+    const movieData = cinemaWorldIsCheaper(moviesData, input);
+    expect(movieData).toBe("cheaper");
+});
+test("CinemaWorld is cheaper", () => {
+    let moviesData = [
+        {
+            Provider: "Cinema World",
+            Movies: [
+                {
+                    ID: "cw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 24.7,
+                },
+
+                {
+                    ID: "cw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24.5,
+                },
+            ],
+        },
+        {
+            Provider: "Film World",
+            Movies: [
+                {
+                    ID: "fw2488496",
+                    Title: "Star Wars: Episode VII - The Force Awakens",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+                    Actors: "Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver",
+                    Price: 25,
+                },
+
+                {
+                    ID: "fw3778644",
+                    Title: "Solo: A Star Wars Story",
+                    Type: "movie",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+                    Actors: "Alden Ehrenreich, Joonas Suotamo, Woody Harrelson, Emilia Clarke",
+                    Price: 24,
+                },
+            ],
+        },
+    ];
+    let input = "Solo: A Star Wars Story";
+    const movieData = filmWorldIsCheaper(moviesData, input);
+    expect(movieData).toBe("cheaper");
+});
+
 // test("component mount test", () => {
 //     render(<MovieDetails />);
 //     const moviesData = state.movieDisplay;

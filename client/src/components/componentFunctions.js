@@ -71,14 +71,33 @@ export function getCinemaWorldMovieImage(moviesData, input) {
     return movieObjImage;
 }
 
-// export function getAllMovies(moviesData) {
-//     if (!moviesData || !moviesData.length) {
-//         return [];
-//     }
-//     let allMovies = [];
-//     let allMoviesProvider1 = moviesData[0]["Movies"];
-//     let allMoviesProvider2 = moviesData[1]["Movies"];
-//     allMovies.push(allMoviesProvider1, allMoviesProvider2);
-//     // console.log(allMovies);
-//     return allMovies;
-// }
+export function getAllMovies(moviesData) {
+    if (!moviesData || !moviesData.length) {
+        return [];
+    }
+    let allMovies = [];
+    let allMoviesProvider1 = moviesData[0]["Movies"];
+    let allMoviesProvider2 = moviesData[1]["Movies"];
+    allMovies.push(allMoviesProvider1, allMoviesProvider2);
+    // console.log(allMovies);
+    return allMovies;
+}
+
+export function cinemaWorldIsCheaper(moviesData, input) {
+    if (
+        parseFloat(getMovieStreamingCostCinemaWorld(moviesData, input)) <
+        parseFloat(getMovieStreamingCostFilmWorld(moviesData, input))
+    ) {
+        return "cheaper";
+        // console.log("true");
+    }
+}
+export function filmWorldIsCheaper(moviesData, input) {
+    if (
+        parseFloat(getMovieStreamingCostCinemaWorld(moviesData, input)) >
+        parseFloat(getMovieStreamingCostFilmWorld(moviesData, input))
+    ) {
+        return "cheaper";
+        // console.log("true");
+    }
+}

@@ -1,10 +1,10 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import { MovieDetails } from "./components/MovieDetails";
-import { getProviderInfo } from "./components/getMovieNames";
-import { getMovieNames } from "./components/getMovieNames";
-import { getMovieStreamingCostCinemaWorld } from "./components/getMovieNames";
-import { getMovieStreamingCostFilmWorld } from "./components/getMovieNames";
-import { getCinemaWorldMovieImage } from "./components/getMovieNames";
+import { getProviderInfo } from "./components/componentFunctions";
+import { getMovieNames } from "./components/componentFunctions";
+import { getMovieStreamingCostCinemaWorld } from "./components/componentFunctions";
+import { getMovieStreamingCostFilmWorld } from "./components/componentFunctions";
+import { getCinemaWorldMovieImage } from "./components/componentFunctions";
 
 test("test", () => {
     expect(true).toBe(true);

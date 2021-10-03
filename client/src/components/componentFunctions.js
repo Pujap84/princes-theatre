@@ -26,16 +26,16 @@ export function getMovieStreamingCostCinemaWorld(moviesData, input) {
         return [];
     }
 
-    let array = [];
+    // let array = [];
     let movieObj1 = moviesData[0].Movies.filter((movie) =>
         movie.Title.includes(input)
     );
 
     let movieObjCostCinemaWorld = movieObj1[0]["Price"].toFixed(2);
 
-    array.push(movieObjCostCinemaWorld);
+    // array.push(movieObjCostCinemaWorld);
 
-    return array;
+    return movieObjCostCinemaWorld;
 }
 
 export function getMovieStreamingCostFilmWorld(moviesData, input) {
@@ -43,30 +43,42 @@ export function getMovieStreamingCostFilmWorld(moviesData, input) {
         return [];
     }
 
-    let array = [];
+    // let array = [];
     let movieObj1 = moviesData[1].Movies.filter((movie) =>
         movie.Title.includes(input)
     );
 
     let movieObjCostFilmWorld = movieObj1[0]["Price"].toFixed(2);
 
-    array.push(movieObjCostFilmWorld);
+    // array.push(movieObjCostFilmWorld);
 
-    return array;
+    return movieObjCostFilmWorld;
 }
 
 export function getCinemaWorldMovieImage(moviesData, input) {
     if (!moviesData || !moviesData.length) {
         return [];
     }
-    let array = [];
+    // let array = [];
     let movieObj1 = moviesData[0].Movies.filter((movie) =>
         movie.Title.includes(input)
     );
 
     let movieObjImage = movieObj1[0]["Poster"];
 
-    array.push(movieObjImage);
+    // array.push(movieObjImage);
 
-    return array;
+    return movieObjImage;
 }
+
+// export function getAllMovies(moviesData) {
+//     if (!moviesData || !moviesData.length) {
+//         return [];
+//     }
+//     let allMovies = [];
+//     let allMoviesProvider1 = moviesData[0]["Movies"];
+//     let allMoviesProvider2 = moviesData[1]["Movies"];
+//     allMovies.push(allMoviesProvider1, allMoviesProvider2);
+//     // console.log(allMovies);
+//     return allMovies;
+// }

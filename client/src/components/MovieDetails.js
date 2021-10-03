@@ -107,76 +107,72 @@ export class MovieDetails extends Component {
                     <div className="all-movies">
                         <div>
                             {this.state.input === "all-movies" ? (
-                                <div>
-                                    <div>
-                                        {this.getAllMovies().map((provider) =>
-                                            provider.map((movie) => (
-                                                <div>
-                                                    <div>{movie["Title"]}</div>
-                                                    <img
-                                                        src={movie["Poster"]}
-                                                        alt=""
-                                                    />
-                                                    <div className="providersandcosts">
-                                                        <div className="providers">
-                                                            {this.getProviderInfo().map(
-                                                                (provider) => (
+                                <div className="grid-container">
+                                    {this.getAllMovies().map((provider) =>
+                                        provider.map((movie) => (
+                                            <div className="single-movie">
+                                                <div className="movie-info">
+                                                    <h3 className="movie-title">
+                                                        {movie["Title"]}
+                                                    </h3>
+                                                </div>
+
+                                                <img
+                                                    src={movie["Poster"]}
+                                                    alt=""
+                                                />
+                                                <div className="providersandcosts">
+                                                    <div className="providers">
+                                                        {this.getProviderInfo().map(
+                                                            (provider) => (
+                                                                <div>
                                                                     <div>
                                                                         {
                                                                             provider
                                                                         }
                                                                     </div>
-                                                                )
+                                                                </div>
+                                                            )
+                                                        )}
+                                                    </div>
+                                                    <div className="costs">
+                                                        <div
+                                                            className={cinemaWorldIsCheaper(
+                                                                this.state
+                                                                    .movieDisplay,
+                                                                movie["Title"]
+                                                            )}
+                                                        >
+                                                            $
+                                                            {getMovieStreamingCostCinemaWorld(
+                                                                this.state
+                                                                    .movieDisplay,
+                                                                movie["Title"]
                                                             )}
                                                         </div>
-                                                        <div className="costs">
-                                                            <div></div>
-                                                            <div
-                                                                className={cinemaWorldIsCheaper(
-                                                                    this.state
-                                                                        .movieDisplay,
-                                                                    movie[
-                                                                        "Title"
-                                                                    ]
-                                                                )}
-                                                            >
-                                                                $
-                                                                {getMovieStreamingCostCinemaWorld(
-                                                                    this.state
-                                                                        .movieDisplay,
-                                                                    movie[
-                                                                        "Title"
-                                                                    ]
-                                                                )}
-                                                            </div>
-                                                            <div
-                                                                className={filmWorldIsCheaper(
-                                                                    this.state
-                                                                        .movieDisplay,
-                                                                    movie[
-                                                                        "Title"
-                                                                    ]
-                                                                )}
-                                                            >
-                                                                $
-                                                                {getMovieStreamingCostFilmWorld(
-                                                                    this.state
-                                                                        .movieDisplay,
-                                                                    movie[
-                                                                        "Title"
-                                                                    ]
-                                                                )}
-                                                            </div>
+                                                        <div
+                                                            className={filmWorldIsCheaper(
+                                                                this.state
+                                                                    .movieDisplay,
+                                                                movie["Title"]
+                                                            )}
+                                                        >
+                                                            $
+                                                            {getMovieStreamingCostFilmWorld(
+                                                                this.state
+                                                                    .movieDisplay,
+                                                                movie["Title"]
+                                                            )}
                                                         </div>
                                                     </div>
                                                 </div>
-                                            ))
-                                        )}
-                                    </div>
+                                            </div>
+                                        ))
+                                    )}
                                 </div>
                             ) : this.state.input !== "" ? (
                                 <div>
-                                    <p>{this.state.input}</p>
+                                    <h3>{this.state.input}</h3>
                                     <img
                                         src={this.getCinemaWorldMovieImage()}
                                         alt=""

@@ -77,8 +77,8 @@ export function getAllMovies(moviesData) {
     }
     let allMovies = [];
     let allMoviesProvider1 = moviesData[0]["Movies"];
-    let allMoviesProvider2 = moviesData[1]["Movies"];
-    allMovies.push(allMoviesProvider1, allMoviesProvider2);
+    // let allMoviesProvider2 = moviesData[1]["Movies"];
+    allMovies.push(allMoviesProvider1);
     // console.log(allMovies);
     return allMovies;
 }

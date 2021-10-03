@@ -22,7 +22,8 @@ function fetchData(URL) {
             return response.data;
         })
         .catch((error) => {
-            console.log(error);
+            alert("Refresh Page");
+            // console.log(error);
         });
 }
 
@@ -31,7 +32,8 @@ getMovieInfo()
         console.log(response);
     })
     .catch((error) => {
-        console.log(error);
+        alert("Refresh Page");
+        // console.log(error);
     });
 
 module.exports = getMovieInfo;

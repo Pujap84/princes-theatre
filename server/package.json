@@ -4,8 +4,10 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "jest --watchAll"
+    "start": "node server.js",
+    "test": "jest --watchAll",
+    "postinstall": "(cd client && npm install);",
+    "build": "npm run build --prefix client"
   },
   "repository": {
     "type": "git",

@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./MovieDetails.css";
-import { getProviderInfo } from "./MovieDisplayComponentPureFunctionsFunctions";
-import { getMovieNames } from "./MovieDisplayComponentPureFunctionsFunctions";
-import { getMovieStreamingCostCinemaWorld } from "./MovieDisplayComponentPureFunctionsFunctions";
-import { getMovieStreamingCostFilmWorld } from "./MovieDisplayComponentPureFunctionsFunctions";
-import { getCinemaWorldMovieImage } from "./MovieDisplayComponentPureFunctionsFunctions";
-import { getAllMovies } from "./MovieDisplayComponentPureFunctionsFunctions";
-import { cinemaWorldIsCheaper } from "./MovieDisplayComponentPureFunctionsFunctions";
-import { filmWorldIsCheaper } from "./MovieDisplayComponentPureFunctionsFunctions";
+import { getProviderInfo } from "./MovieDisplayComponentPureFunctions";
+import { getMovieNames } from "./MovieDisplayComponentPureFunctions";
+import { getMovieStreamingCostCinemaWorld } from "./MovieDisplayComponentPureFunctions";
+import { getMovieStreamingCostFilmWorld } from "./MovieDisplayComponentPureFunctions";
+import { getCinemaWorldMovieImage } from "./MovieDisplayComponentPureFunctions";
+import { getAllMovies } from "./MovieDisplayComponentPureFunctions";
+import { cinemaWorldIsCheaper } from "./MovieDisplayComponentPureFunctions";
+import { filmWorldIsCheaper } from "./MovieDisplayComponentPureFunctions";
 
 /**
  * This is the React class which renders the movies on the screen
@@ -21,6 +21,7 @@ export class MovieDetails extends Component {
         input: "",
         movieDisplay: [],
         isLoaded: false,
+        hasError: false,
     };
     /**
      * The purpose of handleChange is to capture text input in the inputbox when onChange event occurs and save in the state
@@ -40,18 +41,24 @@ export class MovieDetails extends Component {
      * Once the response is successfully loaded, the axios response- JSON data is then set in state - movieDisplay
      */
     componentDidMount = () => {
-        axios
-            .get("/api/message")
-            .then((res) =>
-                this.setState({
-                    movieDisplay: res.data,
-                    isLoaded: true,
-                })
-            )
-            .catch((error) => {
-                throw error;
-            });
+        axios.get("/api/message").then((res) =>
+            this.setState({
+                movieDisplay: res.data,
+                isLoaded: true,
+            })
+        );
+        // .catch((error) => {
+        //     console.log(error.response);
+        //     document.querySelector("#errors").innerHTML =
+        //         error.response.data.message;
+        // });
     };
+    // componentDidCatch(error, info) {
+    //     // Display fallback UI
+    //     this.setState({ hasError: true });
+    //     // You can also log the error to an error reporting service
+    //     // logErrorToMyService(error, info);
+    // }
 
     /**
      * This function uses the stored api response data array from state(movieDisplay) and goes through the first provider movie titles and stores them all the titles in an array
@@ -116,6 +123,9 @@ export class MovieDetails extends Component {
             rel="stylesheet"
             type="text/css"
         />;
+        if (this.state.hasError) {
+            return <h1>Something went wrong!</h1>;
+        }
 
         return (
             <div className="container" data-testid="movieDetails-1">

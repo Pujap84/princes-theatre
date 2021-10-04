@@ -22,7 +22,7 @@ function getData(URL) {
             return response.data;
         })
         .catch((error) => {
-            alert("Refresh Page");
+            return { error: "refresh page" };
             // console.log(error);
         });
 }

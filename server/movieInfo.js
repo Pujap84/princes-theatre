@@ -12,10 +12,10 @@ function getMovieInfo() {
         "https://challenge.lexicondigital.com.au/api/v2/cinemaworld/movies",
         "https://challenge.lexicondigital.com.au/api/v2/filmworld/movies",
     ];
-    return Promise.all(URLs.map(fetchData));
+    return Promise.all(URLs.map(getData));
 }
 
-function fetchData(URL) {
+function getData(URL) {
     return axios
         .get(URL, options)
         .then((response) => {
@@ -27,13 +27,13 @@ function fetchData(URL) {
         });
 }
 
-getMovieInfo()
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        alert("Refresh Page");
-        // console.log(error);
-    });
+// getMovieInfo()
+//     .then((response) => {
+//         console.log(response);
+//     })
+//     .catch((error) => {
+//         alert("Refresh Page");
+//         // console.log(error);
+//     });
 
 module.exports = getMovieInfo;

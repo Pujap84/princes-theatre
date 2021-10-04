@@ -1,13 +1,13 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import { MovieDetails } from "./components/MovieDetails";
-import { getProviderInfo } from "./components/componentFunctions";
-import { getMovieNames } from "./components/componentFunctions";
-import { getMovieStreamingCostCinemaWorld } from "./components/componentFunctions";
-import { getMovieStreamingCostFilmWorld } from "./components/componentFunctions";
-import { getCinemaWorldMovieImage } from "./components/componentFunctions";
-import { getAllMovies } from "./components/componentFunctions";
-import { cinemaWorldIsCheaper } from "./components/componentFunctions";
-import { filmWorldIsCheaper } from "./components/componentFunctions";
+import { getProviderInfo } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { getMovieNames } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { getMovieStreamingCostCinemaWorld } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { getMovieStreamingCostFilmWorld } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { getCinemaWorldMovieImage } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { getAllMovies } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { cinemaWorldIsCheaper } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { filmWorldIsCheaper } from "./components/MovieDisplayComponentPureFunctionsFunctions";
 
 test("test", () => {
     expect(true).toBe(true);

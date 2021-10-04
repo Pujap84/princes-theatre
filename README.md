@@ -1,72 +1,65 @@
 # Prince's Theatre
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a price comparison tool to compare movie streaming costs by two cinemas - Cinemaworld & Filmworld. It provides a solution to add to the customer’s website to see which of the two streaming providers are streaming their chosen movie at a cheaper price.
 
-## Available Scripts
+## View app images here
 
-In the project directory, you can run:
+![movie-app-image1](/read-me-images/movie-app-image1.png)
+![movie-app-image2](/read-me-images/movie-app-image2.png)
+![movie-app-image3](/read-me-images/movie-app-image3.png)
 
-### `yarn start`
+## Live Link to the working app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Getting started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Setup
 
-### `yarn test`
+    - Clone this repo to your desktop and run npm install to install all the dependencies.
+    - You might want to look into package.json and server.js file to make changes to the port you want to use.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Usage
 
-### `yarn build`
+    - After you clone this repo to your computer, go to its root directory and run "npm install" inside the root directory to download Server Dependencies.
+    - Once the dependencies are installed, you can run "npm start" to start in the root directory as well as the client directory.
+    - You will then be able to access it at localhost:3000
+    - open the browser and type in this url: http://localhost:3000/
+    - you will then be all set up.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   React
+-   Express
+-   HTML/CSS
+-   JavaScript
+-   Lexicon Digital API
+-   Axios used to connect the frontend application with the given API via Express backend.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Planning
 
-### `yarn eject`
+-   Wireframes
+    ![movie-app-wireframe](/read-me-images/movie-app-wireframe.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Key Features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Single Page Application
+-   Responsive application using the API to engage end-users
+-   Sourcing movie providers information from the API
+-   Allows users to compare costs from two streaming providers for a chosen movie and making it easier for users to see the cheaper price as it highlighted with flashing animation
+-   Drop down menu to select available individual movie or all available movies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Trade-offs
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-   I understand that its a buggy api with unrelaible endpoint and I have tried catching errors but some reason, I havent been able to work out how to catch it in my react component to handle any instability and ensure the site can remain functional
+-   There have been testing issues using jest for the app as the react component invloves state in most of the component functions and for that reason I was unable to export the functions into my test files . I resorted to endless searching in stackoverflow, googling, and various youtube videos and they all recommended different things but moresover using enzymes and several other libraries for the jest to work. As I have very limited experience in react testing, I resorted to converting my functions to pure functions and do some very basic form of unit testing which might not solve the purpose of testing the app functions. Nevertheless, if I am provided with jest training I am sure I would be able to overcome this issue.
 
-## Learn More
+### Assumptions made
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   It is assumed that the API provides information about only two providers
+-   It is assumed that if there is any error generated or no movie information is displayed then the user will need to refresh browser to overcome unreliable endpoint
+-   It is also assumed that both the providers have the same available movies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Further Development
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# princes-theatre
+1. User-Login
+2. Storing most serached user movies
+3. Generate user greeting

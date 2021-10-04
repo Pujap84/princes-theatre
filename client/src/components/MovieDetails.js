@@ -41,24 +41,18 @@ export class MovieDetails extends Component {
      * Once the response is successfully loaded, the axios response- JSON data is then set in state - movieDisplay
      */
     componentDidMount = () => {
-        axios.get("/api/message").then((res) =>
-            this.setState({
-                movieDisplay: res.data,
-                isLoaded: true,
-            })
-        );
-        // .catch((error) => {
-        //     console.log(error.response);
-        //     document.querySelector("#errors").innerHTML =
-        //         error.response.data.message;
-        // });
+        axios
+            .get("/api/message")
+            .then((res) =>
+                this.setState({
+                    movieDisplay: res.data,
+                    isLoaded: true,
+                })
+            )
+            .catch((error) => {
+                throw error;
+            });
     };
-    // componentDidCatch(error, info) {
-    //     // Display fallback UI
-    //     this.setState({ hasError: true });
-    //     // You can also log the error to an error reporting service
-    //     // logErrorToMyService(error, info);
-    // }
 
     /**
      * This function uses the stored api response data array from state(movieDisplay) and goes through the first provider movie titles and stores them all the titles in an array
@@ -123,9 +117,6 @@ export class MovieDetails extends Component {
             rel="stylesheet"
             type="text/css"
         />;
-        if (this.state.hasError) {
-            return <h1>Something went wrong!</h1>;
-        }
 
         return (
             <div className="container" data-testid="movieDetails-1">

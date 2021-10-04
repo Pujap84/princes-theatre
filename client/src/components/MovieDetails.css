@@ -1,19 +1,73 @@
 body {
-    background-color: black;
+    margin: 80px;
+    margin-top: 50px;
+    background: url(https://i.pinimg.com/originals/df/38/40/df3840de16e84d40afa15d513e9a4a95.jpg)
+        no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Star Jedi", arial;
+    text-shadow: 4px 4px 4px #aaa;
+    /* https://wallpapercave.com/wp/wp3071034.jpg */
+    /* https://i.pinimg.com/originals/df/38/40/df3840de16e84d40afa15d513e9a4a95.jpg */
+}
+.sub-heading {
+    padding: 10px;
+    animation: blinking 3s 3;
+}
+@keyframes blinking {
+    80% {
+        opacity: 0;
+    }
+}
+
+.input-box-container {
+    position: relative;
+    width: 200px;
+    height: 15px;
+    border: 0;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    top: 20;
+}
+.input-box-form {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 25px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgb(57, 71, 148);
+    color: white;
+    border: solid 3px rgba(187, 27, 27, 0.945);
 }
 .providersandcosts {
     display: flex;
-    padding: 10px;
-    gap: 10%;
+    padding-bottom: 5px;
+    grid-gap: 30%;
     text-align: left;
-    height: 50%;
-    width: 50%;
-    margin-left: 42%;
+    justify-content: center;
+    font-size: 16px;
+    font-family: "Star Jedi", arial;
 }
 .providers {
     overflow: auto;
 }
+#cinemaworld-cost,
+#filmworld-cost {
+    padding: 5px;
+}
 
+.provider-name {
+    padding: 5px;
+}
 .movie-info {
     margin-top: 10%;
     margin: 0 auto;
@@ -30,23 +84,35 @@ body {
 }
 
 .cheaper {
-    background-color: yellow;
+    /* background-color: red; */
+    /* font-weight: bolder; */
+    border-radius: 5px;
+    animation: mymove 1s infinite;
+}
+@keyframes mymove {
+    from {
+        background-color: blue;
+    }
+    to {
+        background-color: red;
+    }
 }
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 10px;
+    gap: 2%;
     justify-items: center;
 }
 .single-movie {
     width: 300px;
     display: inline-block;
-    margin-bottom: 5px;
     position: relative;
-    padding: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    background-color: #555455;
+    background-color: #55545566;
     border-radius: 15px;
 }
 .movie-title {
@@ -56,10 +122,12 @@ body {
     text-overflow: ellipsis;
     font-size: 16px;
     color: white;
-    padding: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .grid-container img {
-    height: 400px;
+    height: 75%;
+    width: 90%;
     padding: 10px;
     border-radius: 15px;
     background-color: #7b787b80;

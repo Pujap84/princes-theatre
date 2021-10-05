@@ -1,5 +1,6 @@
 body {
-    margin: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 8%;
     background: url(https://wallpapercave.com/wp/wp3071034.jpg) no-repeat center
         center fixed;
@@ -9,8 +10,6 @@ body {
     background-size: cover;
     font-family: "Star Jedi", arial;
     text-shadow: 4px 4px 4px #aaa;
-    /* https://wallpapercave.com/wp/wp3071034.jpg */
-    /* https://i.pinimg.com/originals/df/38/40/df3840de16e84d40afa15d513e9a4a95.jpg */
 }
 .sub-heading {
     padding: 10px;
@@ -21,6 +20,9 @@ body {
         opacity: 0;
     }
 }
+/* .container {
+    height: 80%;
+} */
 
 .input-box-container {
     position: relative;

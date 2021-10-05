@@ -2,6 +2,9 @@
     text-align: center;
     color: white;
 }
+body {
+    margin: 80px;
+}
 /* .theatre-name {
     animation: zoomin 3s 1;
     font-size: 36px;

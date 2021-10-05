@@ -1,6 +1,10 @@
 # Prince's Theatre
 
-This is a price comparison tool to compare movie streaming costs by two cinemas - Cinemaworld & Filmworld. It provides a solution to add to the customer’s website to see which of the two streaming providers are streaming their chosen movie at a cheaper price.
+Prince's Theatre is a price comparison tool to compare movie streaming costs by two cinemas - Cinemaworld & Filmworld. It provides a modern, responsive interface utilising APIs for updated prices at all times.
+
+It provides a solution to add to the customer’s website to see which of the two streaming providers are streaming their chosen movie at a cheaper price.
+
+## Demo
 
 ## View app images here
 
@@ -51,8 +55,8 @@ https://guarded-wave-26538.herokuapp.com/
 
 ### Trade-offs
 
--   I understand that its a buggy api with unrelaible endpoint and I have tried catching errors but some reason, I havent been able to work out how to catch it in my react component to handle any instability and ensure the site can remain functional
--   There have been testing issues using jest for the app as the react component invloves state in most of the component functions and for that reason I was unable to export the functions into my test files . I resorted to endless searching in stackoverflow, googling, and various youtube videos and they all recommended different things but moresover using enzymes and several other libraries for the jest to work. As I have very limited experience in react testing, I resorted to converting my functions to pure functions and do some very basic form of unit testing which might not solve the purpose of testing the app functions. Nevertheless, if I am provided with jest training I am sure I would be able to overcome this issue.
+-   In order to provide the end-user with a seamless experience, the web page automatically reloads itself if the API call does not return the expected response.
+-   I experienced issues using jest for the app as the react component invloves state in most of the component functions and for that reason I was unable to export the functions into my test files. I briefly explored using other libraries including enzymes but ran out of time to get this working. As a trade-off, I converted my functions to pure functions and I perform very basic unit testing which might not solve the purpose of testing the app functions. Nevertheless, if I am provided with jest training I am sure I would be able to overcome this issue.
 
 ### Assumptions made
 

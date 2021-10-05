@@ -1,5 +1,6 @@
 body {
-    margin: 80px;
+    margin: auto;
+    margin-bottom: 80px;
     margin-top: 50px;
     background: url(https://wallpapercave.com/wp/wp3071034.jpg) no-repeat center
         center fixed;
@@ -77,6 +78,7 @@ body {
 }
 .all-movies {
     margin-top: 20px;
+    justify-content: center;
 }
 
 .dropdown-menu {
@@ -104,6 +106,7 @@ body {
     justify-items: center;
 }
 .single-movie {
+    justify-content: center;
     width: 300px;
     display: inline-block;
     position: relative;

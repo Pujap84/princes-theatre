@@ -52,8 +52,8 @@ https://guarded-wave-26538.herokuapp.com/
 
 ### Architectural elements and decisions
 
--   I decided to use react for front end as it lets you build rich responsive user-interfaces easily ehich can be accessible on all devices. It can also increase productivity by using the reusable components and development tools.
--   Express. Js was used for backend development JavaScript Framework as it helps create Restful API's that accept request from frontend and send the appropriate response.
+-   I decided to use React for front end as it lets you build rich responsive user-interfaces easily ehich can be accessible on all devices. It can also increase productivity by using the reusable components and development tools.
+-   Express.Js was used for backend development JavaScript Framework as it helps create Restful API's that accept request from frontend and send the appropriate response.
 -   Axios library has been used to make HTTP request on the server as well as the client side as it has good defaults to work with JSON data and has better error handling, especially in this case where the API endpoint is unrelaible. It is also known for protection against cross-site request forgery (CSFR) attacks.
 -   Similar wireframe to that was provided has been used but an addititional feature of dropdown input box has been added for users to be able to choose their choice of available movie and it defaults to "Select Movie" which displays no movies until user requests it from the input box, giving users the complete control on viewing available movies.
 

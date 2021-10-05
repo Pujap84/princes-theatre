@@ -36,19 +36,19 @@ export class MovieDetails extends Component {
 
     // This function is invoked immediately after a component is mounted
     /**
-     * call api and loads data from a remote endpoint
+     * calls API and loads data from a remote endpoint
      * will ensure that the api data is only requested after the initial render of the MovieDetails component
      * Once the response is successfully loaded, the axios response- JSON data is then set in state - movieDisplay
      */
     componentDidMount = () => {
-        document.title = "Princes Theatre";
+        document.title = "Princes Theatre"; // sets title document
         axios
             .get("/api/message")
             .then((res) => {
                 let data = res.data;
                 let newdata = data.map((provider) => provider.error);
                 if (newdata.includes("refresh page")) {
-                    window.location.reload();
+                    window.location.reload(); // If the API returns an error, we trigger a page reload. This ensures the user does not experience a visible failure.
                 } else {
                     this.setState({
                         movieDisplay: res.data,

@@ -16,7 +16,7 @@ https://guarded-wave-26538.herokuapp.com/
 -   Allows users to compare costs from two streaming providers for a chosen movie and making it easier for users to see the cheaper price as it highlighted with flashing animation
 -   Drop down menu to select available individual movie or all available movies
 
-## View app images here
+### View app images here
 
 ![movie-app-image1](/read-me-images/movie-app-image1.png)
 ![movie-app-image2](/read-me-images/movie-app-image2.png)
@@ -36,19 +36,26 @@ https://guarded-wave-26538.herokuapp.com/
     - You will then be able to access it at localhost:3000
     - Open the browser and type in this url: http://localhost:3000/
 
+### Planning
+
+-   Wireframes
+    ![movie-app-wireframe](/read-me-images/movie-app-wireframe.png)
+
 ### Technologies
 
 -   React
--   Express
+-   Express.Js
 -   HTML/CSS
 -   JavaScript
 -   Lexicon Digital API
 -   Axios used to connect the frontend application with the given API via Express backend.
 
-### Planning
+### Architectural elements and decisions
 
--   Wireframes
-    ![movie-app-wireframe](/read-me-images/movie-app-wireframe.png)
+-   I decided to use react for front end as it lets you build rich responsive user-interfaces easily ehich can be accessible on all devices. It can also increase productivity by using the reusable components and development tools.
+-   Express. Js was used for backend development JavaScript Framework as it helps create Restful API's that accept request from frontend and send the appropriate response.
+-   Axios library has been used to make HTTP request on the server as well as the client side as it has good defaults to work with JSON data and has better error handling, especially in this case where the API endpoint is unrelaible. It is also known for protection against cross-site request forgery (CSFR) attacks.
+-   Similar wireframe to that was provided has been used but an addititional feature of dropdown input box has been added for users to be able to choose their choice of available movie and it defaults to "Select Movie" which displays no movies until user requests it from the input box, giving users the complete control on viewing available movies.
 
 ### Trade-offs
 
@@ -64,3 +71,4 @@ https://guarded-wave-26538.herokuapp.com/
 ## Further Development
 
 -   Fix unit testing framework
+-   Multiselect movies from input box to view them

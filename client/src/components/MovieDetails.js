@@ -41,6 +41,7 @@ export class MovieDetails extends Component {
      * Once the response is successfully loaded, the axios response- JSON data is then set in state - movieDisplay
      */
     componentDidMount = () => {
+        document.title = "Princes Theatre";
         axios
             .get("/api/message")
             .then((res) => {

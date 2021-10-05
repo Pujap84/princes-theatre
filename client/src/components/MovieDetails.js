@@ -43,12 +43,18 @@ export class MovieDetails extends Component {
     componentDidMount = () => {
         axios
             .get("/api/message")
-            .then((res) =>
-                this.setState({
-                    movieDisplay: res.data,
-                    isLoaded: true,
-                })
-            )
+            .then((res) => {
+                let data = res.data;
+                let newdata = data.map((provider) => provider.error);
+                if (newdata.includes("refresh page")) {
+                    window.location.reload();
+                } else {
+                    this.setState({
+                        movieDisplay: res.data,
+                        isLoaded: true,
+                    });
+                }
+            })
             .catch((error) => {
                 throw error;
             });

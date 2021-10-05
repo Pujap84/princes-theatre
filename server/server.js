@@ -20,7 +20,7 @@ app.get("/api/message", async (req, res) => {
 });
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("./client/build"));
+    app.use(express.static("../client/build"));
     app.set("trust proxy", 1);
 
     app.get("/*", (req, res) => {

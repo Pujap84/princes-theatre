@@ -1,13 +1,13 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import { MovieDetails } from "./components/MovieDetails";
-import { getProviderInfo } from "./components/MovieDisplayComponentPureFunctionsFunctions";
-import { getMovieNames } from "./components/MovieDisplayComponentPureFunctionsFunctions";
-import { getMovieStreamingCostCinemaWorld } from "./components/MovieDisplayComponentPureFunctionsFunctions";
-import { getMovieStreamingCostFilmWorld } from "./components/MovieDisplayComponentPureFunctionsFunctions";
-import { getCinemaWorldMovieImage } from "./components/MovieDisplayComponentPureFunctionsFunctions";
-import { getAllMovies } from "./components/MovieDisplayComponentPureFunctionsFunctions";
-import { cinemaWorldIsCheaper } from "./components/MovieDisplayComponentPureFunctionsFunctions";
-import { filmWorldIsCheaper } from "./components/MovieDisplayComponentPureFunctionsFunctions";
+import { getProviderInfo } from "./components/MovieDisplayComponentPureFunctions";
+import { getMovieNames } from "./components/MovieDisplayComponentPureFunctions";
+import { getMovieStreamingCostCinemaWorld } from "./components/MovieDisplayComponentPureFunctions";
+import { getMovieStreamingCostFilmWorld } from "./components/MovieDisplayComponentPureFunctions";
+import { getCinemaWorldMovieImage } from "./components/MovieDisplayComponentPureFunctions";
+import { getAllMovies } from "./components/MovieDisplayComponentPureFunctions";
+import { cinemaWorldIsCheaper } from "./components/MovieDisplayComponentPureFunctions";
+import { filmWorldIsCheaper } from "./components/MovieDisplayComponentPureFunctions";
 
 test("test", () => {
     expect(true).toBe(true);

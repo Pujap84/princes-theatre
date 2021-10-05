@@ -134,7 +134,7 @@ export class MovieDetails extends Component {
                                 className="input-box-form"
                                 onChange={this.handleChange}
                             >
-                                <option value="">None</option>
+                                <option value="">Select Movie</option>
                                 <option value="all-movies">All Movies</option>
                                 {this.state.isLoaded &&
                                     this.getMovieNames().map((movie) => (

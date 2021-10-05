@@ -10,6 +10,8 @@ This is a price comparison tool to compare movie streaming costs by two cinemas 
 
 ## Live Link to the working app
 
+https://guarded-wave-26538.herokuapp.com/
+
 ### Getting started
 
 1. Setup
